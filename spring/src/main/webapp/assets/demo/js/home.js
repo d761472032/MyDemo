@@ -2,10 +2,12 @@ var app = {
     method: {
         init: function () {
             app.$('title').innerText = 'This is home page.';
-            app.method.way1();
+            app.method.way1('/demo/data/list');
+            app.method.way3('/demo/data/list');
+            app.method.way4('/demo/data/list');
         },
-        way1: function() {
-            fetch('/demo/data/list')
+        way1: function(url) {
+            fetch(url)
                 .then(function (response) {
                     return response.json();
                 })
@@ -17,9 +19,9 @@ var app = {
         },
         way2: function() {
         },
-        way3: function() {
+        way3: function(url) {
             $.ajax({
-                url: '/demo/data/list',
+                url: url,
                 type: 'GET',
                 dataType: 'text',
                 success: function (data) {
