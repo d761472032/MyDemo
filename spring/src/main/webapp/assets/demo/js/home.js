@@ -1,7 +1,10 @@
 var app = {
     method: {
         init: function () {
-            console.log("123456");
+            app.$('title').innerText = 'This is home page.';
         }
+    },
+    $: function (id) {
+        return document.getElementById(id);
     }
 };
