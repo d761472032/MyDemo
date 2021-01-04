@@ -1,6 +1,5 @@
 spring:
   thymeleaf:
-#   默认路径为 classpath: /templates/*.html，即 resources 下的 templates
-    prefix:
-      classpath: /WEB-INF/static/html
+#    prefix: classpath:/WEB-INF/static/html/
     suffix: .html
+    cache: false
