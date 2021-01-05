@@ -25,6 +25,11 @@ public class DataController {
         return list;
     }
 
+    @RequestMapping("/args")
+    public String getArgs(String args) {
+        return args;
+    }
+
     /**
      *
      * @param user      user.id, user.username, user.password
