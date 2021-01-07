@@ -5,6 +5,8 @@ import com.demo.bean.Dept;
 import com.demo.bean.Role;
 import com.demo.bean.User;
 import com.demo.denum.FormModelType;
+import com.demo.service.DemoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +17,9 @@ import java.util.List;
 @RequestMapping("/data")
 public class DataController {
 
+    @Autowired
+    private DemoService demoService;
+
     @RequestMapping("/list")
     public Object list() {
         List<String> list = new ArrayList<>();
@@ -23,6 +28,11 @@ public class DataController {
         list.add("c");
         list.add("d");
         return list;
+    }
+
+    @RequestMapping("/page")
+    public Object page() {
+        return demoService.page();
     }
 
     @RequestMapping("/args")

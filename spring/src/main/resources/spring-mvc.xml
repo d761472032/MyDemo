@@ -22,4 +22,6 @@
         <property name="suffix" value=".html" />
     </bean>
 
+    <import resource="spring-datasource.xml" />
+
 </beans>

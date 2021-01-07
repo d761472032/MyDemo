@@ -12,6 +12,7 @@
     <modules>
         <module>spring</module>
         <module>springboot</module>
+        <module>utils</module>
     </modules>
 
     <dependencyManagement>
