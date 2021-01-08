@@ -5,6 +5,19 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
+  <filter>
+    <filter-name>demoFilter</filter-name>
+    <filter-class>com.demo.filter.DemoFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>demoFilter</filter-name>
+    <url-pattern>/demo</url-pattern>
+  </filter-mapping>
+
+  <listener>
+    <listener-class>com.demo.listener.DemoListener</listener-class>
+  </listener>
+
   <servlet>
     <servlet-name>demoServlet</servlet-name>
     <servlet-class>com.demo.servlet.DemoServlet</servlet-class>
@@ -22,4 +35,5 @@
     <servlet-name>redirectServlet</servlet-name>
     <url-pattern>/redirect</url-pattern>
   </servlet-mapping>
+
 </web-app>
