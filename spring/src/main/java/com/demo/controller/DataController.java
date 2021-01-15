@@ -7,6 +7,7 @@ import com.demo.bean.User;
 import com.demo.denum.FormModelType;
 import com.demo.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -55,6 +56,21 @@ public class DataController {
         System.out.println(dept.getId());
         System.out.println(roles.size());
         return "ok";
+    }
+
+    @RequestMapping("/restful/{x}")
+    public String restful(@PathVariable("x") String x) {
+        return x;
+    }
+
+    @RequestMapping("/restful/{x}/{y}")
+    public String restful2(@PathVariable("x") String x, @PathVariable("y") String y) {
+        return x + " : " + y;
+    }
+
+    @RequestMapping("/restful/{x}/{y}/{z}")
+    public String restful2(@PathVariable("x") String x, @PathVariable("y") String y, @PathVariable("z") String z) {
+        return x + " : " + y + " : " + z;
     }
 
 }
