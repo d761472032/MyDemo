@@ -13,10 +13,14 @@ import io.netty.handler.codec.string.StringDecoder;
 public class Client {
 
     public static void main(String[] args) {
+        // 服务ip
         String host = "localhost";
+        // 服务端口
         int port = 9090;
+        // 执行线程
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
+            // client 启动器
             Bootstrap b = new Bootstrap(); // (1)
             b.group(workerGroup); // (2)
             b.channel(NioSocketChannel.class); // (3)
@@ -26,11 +30,11 @@ public class Client {
                     ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
                     ch.pipeline().addLast(new StringDecoder());
                     ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
-                        private byte[] req=("QUERY TIME ORDER" + System.getProperty("line.separator")).getBytes();
                         @Override
-                        public void channelActive(ChannelHandlerContext ctx) {//1
-                            ByteBuf message = Unpooled.buffer(req.length);
-                            message.writeBytes(req);
+                        public void channelActive(ChannelHandlerContext ctx) {
+                            byte[] bytes = ("QUERY TIME ORDER" + System.getProperty("line.separator")).getBytes();
+                            ByteBuf message = Unpooled.buffer(bytes.length);
+                            message.writeBytes(bytes);
                             ctx.writeAndFlush(message);
                         }
                         @Override
