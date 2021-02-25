@@ -11,6 +11,15 @@ public class BaseMain {
     public static void main(String[] args) {
         A a = new A();
         System.out.println(ClassLayout.parseInstance(a).toPrintable());
+
+        try {
+            Thread.sleep(10000);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        a = new A();
+        System.out.println(ClassLayout.parseInstance(a).toPrintable());
     }
 
 }
