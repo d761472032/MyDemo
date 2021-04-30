@@ -13,7 +13,7 @@ public class BaseMain {
         System.out.println(ClassLayout.parseInstance(a).toPrintable());
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(2000);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
