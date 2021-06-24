@@ -15,6 +15,7 @@
         <module>utils</module>
         <module>servletWeb</module>
         <module>javaDemo</module>
+        <module>rpcDemo</module>
     </modules>
 
     <dependencyManagement>

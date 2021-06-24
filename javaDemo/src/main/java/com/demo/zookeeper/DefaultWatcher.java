@@ -13,9 +13,9 @@ public class DefaultWatcher implements Watcher {
     public void process(WatchedEvent watchedEvent) {
         switch (watchedEvent.getState()) {
             case Disconnected:
-                countDownLatch.countDown();
                 break;
             case SyncConnected:
+                countDownLatch.countDown();
                 break;
             case AuthFailed:
                 break;
@@ -28,6 +28,8 @@ public class DefaultWatcher implements Watcher {
             case Closed:
                 break;
         }
+
+        System.out.println("Watcher -> process");
     }
 
 }
