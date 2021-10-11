@@ -3,3 +3,56 @@ spring:
 #    prefix: classpath:/WEB-INF/static/html/
     suffix: .html
     cache: false
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.16/demo?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+
+  # 默认的AES加密器
+  shardingsphere:
+    datasource:
+      ds:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.1.16/demo?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: 123456
+    encrypt:
+      encryptors:
+        encryptor_aes:
+          type: aes
+          props:
+            aes:
+              key:
+                value: hkiqAXU6Ur5fixGHaO4Lb2V2ggausYwW
+
+      tables:
+        customers:
+          columns:
+            name:
+              cipherColumn: name
+              encryptor: encryptor_aes
+#        card_info:
+#          columns:
+#            # card_info 姓名 AES加密
+#            name:
+#              cipherColumn: name
+#              encryptor: encryptor_aes
+#
+#            # card_info 身份证 AES加密
+#            id_no:
+#              cipherColumn: id_no
+#              encryptor: encryptor_aes
+#
+#            # card_info 银行卡号 AES加密
+#            finshell_card_no:
+#              cipherColumn: finshell_card_no
+#              encryptor: encryptor_aes
+#
+#        pay_order:
+#          columns:
+#            # pay_order 银行卡号 AES加密
+#            card_no:
+#              cipherColumn: card_no
+#              encryptor: encryptor_aes
