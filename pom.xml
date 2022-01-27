@@ -16,6 +16,7 @@
         <module>servletWeb</module>
         <module>javaDemo</module>
         <module>rpcDemo</module>
+        <module>empty</module>
     </modules>
 
     <dependencyManagement>
@@ -26,6 +27,14 @@
                 <version>4.11</version>
                 <scope>test</scope>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.optimaize.languagedetector/language-detector -->
+            <dependency>
+                <groupId>com.optimaize.languagedetector</groupId>
+                <artifactId>language-detector</artifactId>
+                <version>0.6</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
